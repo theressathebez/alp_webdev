@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/home', function () {
+    return view('home',[
+        "title" => "HOME",
+        "myname" => "yunjii",
+        "email" => "yuhuu@ciputra.ac.id",
+        "line" => "uuhuyyy"
+    ]);
 });
