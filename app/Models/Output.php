@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Output extends Model
 {
+    //coba coba
     use HasFactory;
     public $timestamps = false;
 
