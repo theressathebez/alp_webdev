@@ -5,7 +5,6 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 items-center">
             @foreach ($stages as $stage)
                 <div class="p-5 rounded-lg shadow-md text-center transition-transform transform hover:scale-105">
-
                     <h1>
                         {{ $stage->stage_name }}
                     </h1>

@@ -17,7 +17,7 @@ class RegistrationSeeder extends Seeder
     {
         Registration::factory(10)
             ->recycle(Team::factory(2)->create())
-            ->recycle(Category::factory(2)->create())
+            ->recycle(Category::factory(5)->create())
             ->create();
     }
 }

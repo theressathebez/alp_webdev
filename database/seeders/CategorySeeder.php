@@ -14,8 +14,13 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
+        $competition = Competition::all();
         Category::factory(10)
-            ->recycle(Competition::factory(2)->create())
+            ->state(function () use ($competition) {
+                return [
+                    'competition_id' => $competition->random()->id, // Assign a random existing result
+                ];
+            })
             ->create();
     }
 }
