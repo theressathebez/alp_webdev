@@ -12,4 +12,23 @@ class Team extends Model
     protected $fillable  = ['team_name'];
     public $timestamps = false;
 
+    public function institution()
+    {
+        return $this->belongsTo(Institution::class, 'institution_id','id');
+    }
+
+    public function participants()
+    {
+        return $this->hasMany(Participant::class);
+    }
+
+    public function registrations()
+    {
+        return $this->hasMany(Registration::class, 'team_id', 'id');
+    }
+
+    public function leader()
+    {
+        return $this->hasOne(Leader::class);
+    }
 }

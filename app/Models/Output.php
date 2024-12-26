@@ -13,4 +13,18 @@ class Output extends Model
     protected $fillable  = [
        
     ];
+
+    public function registration()
+    {
+        return $this->belongsTo(Registration::class);
+    }
+
+    public function result()
+    {
+        return $this->belongsTo(Result::class);
+    }
+    public function stage()
+    {
+        return $this->belongsTo(Stage::class);
+    }
 }

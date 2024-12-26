@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="flex flex-col min-h-screen font-sans antialiased bg-gradient-to-b from-sky-100 to-white text-text-color">
+    <div class="flex flex-col min-h-screen font-sans antialiased bg-gradient-to-b from-sky-50 to-white text-text-color">
 
         <x-header></x-header>
 

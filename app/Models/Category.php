@@ -23,7 +23,6 @@ class Category extends Model
         return $this->belongsTo(Competition::class);
     }
 
-
     public function registrations(): HasMany
     {
         return $this->hasMany(Registration::class);

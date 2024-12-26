@@ -21,4 +21,9 @@ class Stage extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    public function outputs()
+    {
+        return $this->hasMany(Output::class);
+    }
 }

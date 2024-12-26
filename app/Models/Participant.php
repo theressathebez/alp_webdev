@@ -13,9 +13,20 @@ class Participant extends Model
     protected $fillable  = [
         'participant_name',
         'participant_dob',
-        'paricipant_location',
+        'participant_location',
         'participant_email',
         'participant_phone',
         'participant_password'
     ];
+
+    public function team()
+    {
+        return $this->belongsTo(Team::class);
+    }
+
+    public function leader()
+    {
+        return $this->belongsTo(Leader::class, 'leader_id', 'id');
+    }
+    
 }

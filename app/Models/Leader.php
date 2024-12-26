@@ -17,4 +17,14 @@ class Leader extends Model
         'leader_dob',
         'leader_location'
     ];
+
+    public function participants()
+    {
+        return $this->hasMany(Participant::class, 'leader_id', 'id');
+    }
+
+    public function team()
+    {
+        return $this->belongsTo(Team::class);
+    }
 }

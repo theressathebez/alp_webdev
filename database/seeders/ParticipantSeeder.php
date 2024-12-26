@@ -15,9 +15,15 @@ class ParticipantSeeder extends Seeder
      */
     public function run(): void
     {
-        Participant::factory(10)
-            ->recycle(Team::factory(2)->create())
-            ->recycle(Leader::factory(2)->create())
-            ->create();
+        // Buat beberapa Team terlebih dahulu
+        $teams = Team::factory(10)->create();
+
+        // Untuk setiap Team, buat Participant dan tetapkan ke Team
+        foreach ($teams as $team) {
+            Participant::factory(5) // Misalnya, 5 peserta untuk setiap tim
+                ->create([
+                    'team_id' => $team->id,
+                ]);
+        }
     }
 }

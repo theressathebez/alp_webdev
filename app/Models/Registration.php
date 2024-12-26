@@ -15,8 +15,18 @@ class Registration extends Model
        'registration_date'
     ];
 
-    public function category(): BelongsTo
+    public function team()
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Team::class, 'team_id', 'id');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'category_id', 'id');
+    }
+
+    public function outputs()
+    {
+        return $this->hasMany(Output::class, 'registration_id', 'id');
     }
 }

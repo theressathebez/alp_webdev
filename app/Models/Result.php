@@ -15,4 +15,9 @@ class Result extends Model
         'result_name',
         'prizes'
     ];
+
+    public function outputs()
+    {
+        return $this->hasMany(Output::class);
+    }
 }

@@ -18,7 +18,7 @@
         </div>
 
         <!-- Desktop Navbar Menu -->
-        <nav class="flex items-center justify-center flex-1 hidden md:flex">
+        <nav class=" items-center justify-center flex-1 hidden md:flex">
             <ul class="flex gap-6 list-none text-sm">
                 <li>
                     <a href="/home"
