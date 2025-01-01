@@ -15,7 +15,9 @@ class Leader extends Model
         'leader_email',
         'leader_phone',
         'leader_dob',
-        'leader_location'
+        'leader_location',
+        'leader_password',
+        'team_id'
     ];
 
     public function participants()

@@ -24,6 +24,7 @@ class LeaderFactory extends Factory
             'leader_phone' => $this->faker->phoneNumber, 
             'leader_dob' => $this->faker->date('Y-m-d', '-18 years'), 
             'leader_location' => $this->faker->address,
+            'leader_password' => $this->faker->password(8,16),
             'team_id' => Team::factory()
         ];
     }

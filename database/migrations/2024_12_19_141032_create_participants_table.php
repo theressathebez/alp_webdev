@@ -18,8 +18,6 @@ return new class extends Migration
             $table->string('participant_location');
             $table->string('participant_email');
             $table->string('participant_phone');
-            $table->string('participant_password');
-
 
             $table->foreignId('team_id')->constrained(
                 table: 'teams',

@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('leader_phone');
             $table->date('leader_dob');
             $table->string('leader_location');
+            $table->string('leader_password');
+
 
 
             $table->foreignId('team_id')->constrained(

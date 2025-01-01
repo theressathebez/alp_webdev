@@ -24,7 +24,6 @@ class ParticipantFactory extends Factory
             'participant_location' => $this->faker->address,
             'participant_email' => $this->faker->unique()->safeEmail,
             'participant_phone' => $this->faker->phoneNumber,
-            'participant_password'=> $this->faker->password(8, 16),
 
             'team_id'=> Team::factory(),
             'leader_id'=>Leader::factory()

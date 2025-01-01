@@ -22,10 +22,12 @@
             </nav>
 
             <div class="flex justify-center mt-10">
-                <button onclick="showContent('logout')"
-                    class="px-6 py-2 rounded-md bg-red-500 text-white hover:bg-red-600">
-                    Logout
-                </button>
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <button type="submit" class="bg-red-500 text-white p-2 rounded">
+                        Logout
+                    </button>
+                </form>
             </div>
         </aside>
 
