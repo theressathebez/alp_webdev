@@ -3,7 +3,6 @@
 
     <form action="{{ route('team.store') }}" method="POST">
         @csrf
-
         {{-- Name --}}
         <div class="mb-4">
             <label for="team_name" class="block text-gray-700 text-sm font-bold mb-2">Team Name</label>

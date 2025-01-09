@@ -30,7 +30,7 @@ function store(Request $request)
 
     // Proceed with storing data
     $leader = Leader::create($validated);
-    return redirect()->route('participant.create', ['leader_id' => $leader->id])
+    return redirect()->route('participant.create', ['leader_id' => $leader->id, 'team_id' => $leader->team_id])
     ->with('success', 'Leader created successfully. Please add participants.');
 }
 

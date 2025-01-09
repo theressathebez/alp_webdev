@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Participant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+
 
 class ParticipantController extends Controller
 {
@@ -56,7 +58,7 @@ class ParticipantController extends Controller
 
 function create(Request $request) {
     $leader_id = $request->query('leader_id');
-    $team_id = $request->query('team_id');
+    $team_id = $request->query('team_id'); 
     return view('participant.create', [
         "title" => "Create Participant",
         "leader_id" => $leader_id,
@@ -67,6 +69,8 @@ function create(Request $request) {
 function store(Request $request)
 {
     
+    Log::info('Storing Participant Data:', $request->all());
+
     $validated = $request->validate([
        'participant_name' => 'required|string|max:255',
         'participant_dob' => 'required|date',
@@ -80,7 +84,7 @@ function store(Request $request)
     ]);
 
     // Proceed with storing data
-    Participant::create($validated);
+    Participant::create($validated);    
     return redirect()->route('participant.index')->with('success', 'Participant added successfully.');
 }
 

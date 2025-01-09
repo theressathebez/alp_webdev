@@ -3,6 +3,7 @@
 
     <form action="{{ route('leader.store') }}" method="POST">
         @csrf
+        {{-- passing data --}}
         <input type="hidden" name="team_id" value="{{ $team_id }}">
 
         {{-- Leader Name --}}

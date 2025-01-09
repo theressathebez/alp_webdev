@@ -16,7 +16,9 @@ class Participant extends Model
         'participant_location',
         'participant_email',
         'participant_phone',
-        'participant_password'
+        'participant_password',
+        'leader_id',
+        'team_id'
     ];
 
     public function team()
@@ -28,5 +30,4 @@ class Participant extends Model
     {
         return $this->belongsTo(Leader::class, 'leader_id', 'id');
     }
-    
 }
