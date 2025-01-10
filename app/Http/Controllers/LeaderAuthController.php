@@ -6,35 +6,39 @@ use App\Models\Leader;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+
 class LeaderAuthController extends Controller
 {
+
     public function showLoginForm()
     {
-        return view('auth.login'); // Show the login form
+        return view('login', [
+            'title' => 'Leader Login'
+        ]);
     }
 
     public function login(Request $request)
     {
-        $request->validate([
+        $credentials = $request->validate([
             'leader_email' => 'required|email',
             'leader_password' => 'required|string|min:8',
         ]);
 
-        $leader = Leader::where('leader_email', $request->leader_email)->first();
+        $leader = \App\Models\Leader::where('leader_email', $credentials['leader_email'])->first();
 
-        if (!$leader || !Hash::check($request->leader_password, $leader->leader_password)) {
-            return back()->withErrors([
-                'leader_email' => 'The provided credentials do not match our records.',
-            ]);
+        if ($leader && $credentials['leader_password'] === $leader->leader_password) {
+            Auth::guard('leader')->login($leader);
+            return redirect()->route('home');
         }
 
-        Auth::login($leader); // Log the leader in
-        return redirect()->route('leader.dashboard'); // Redirect after login
+        return back()->withErrors(['leader_email' => 'Invalid credentials, please try again.']);
     }
+
+
 
     public function logout()
     {
-        Auth::logout(); // Logout the user
-        return redirect()->route('login'); // Redirect to login page
+        Auth::guard('leader')->logout();
+        return redirect()->route('leader.login');
     }
 }

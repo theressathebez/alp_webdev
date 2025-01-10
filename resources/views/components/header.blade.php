@@ -41,7 +41,7 @@
 
         <!-- Sign Up Button -->
         <div class="ml-2">
-            <a href="/register"
+            <a href="/team/create"
                 class="bg-blue-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg text-xs md:text-sm  font-semibold hover:bg-blue-600">
                 Sign Up Now
             </a>

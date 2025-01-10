@@ -84,8 +84,8 @@ function store(Request $request)
     ]);
 
     // Proceed with storing data
-    Participant::create($validated);    
-    return redirect()->route('participant.index')->with('success', 'Participant added successfully.');
+    $participant = Participant::create($validated);    
+    return redirect()->route('registration.create' ,['team_id' => $participant-> team_id])->with('success', 'Participant added successfully.');
 }
 
 function edit(Participant $participant) {
