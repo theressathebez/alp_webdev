@@ -31,13 +31,12 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
+    Route::get('/participant/{participant}', [ParticipantController::class, 'show'])->name('participant.show');
 });
 
 //Routes untuk HTTP Request kalo VP
 Route::resource("/participant", ParticipantController::class);
 Route::resource("/leader", LeaderController::class);
 Route::resource("/team", TeamController::class);
-
-
 
 require __DIR__.'/auth.php';

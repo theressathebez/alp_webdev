@@ -33,7 +33,7 @@
                         class="{{ request()->is('result') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 border-b-2 border-transparent hover:border-blue-500">Results</a>
                 </li>
                 <li>
-                    <a href="/account"
+                    <a href="/participant"
                         class="{{ request()->is('account') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 border-b-2 border-transparent hover:border-blue-500">Account</a>
                 </li>
             </ul>
@@ -41,7 +41,7 @@
 
         <!-- Sign Up Button -->
         <div class="ml-2">
-            <a href="/register"
+            <a href="{{ route('team.create') }}"
                 class="bg-blue-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg text-xs md:text-sm  font-semibold hover:bg-blue-600">
                 Sign Up Now
             </a>
@@ -75,10 +75,14 @@
                 <a href="/result"
                     class="{{ request()->is('result') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 block py-2">Results</a>
             </li>
-            <li>
-                <a href="/account"
-                    class="{{ request()->is('account') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 block py-2">Account</a>
-            </li>
+
+            @auth
+                <li>
+                    <a href="/participant"
+                        class="{{ request()->is('account') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 block py-2">Account</a>
+                </li>
+            @endauth
+
         </ul>
     </nav>
 </div>

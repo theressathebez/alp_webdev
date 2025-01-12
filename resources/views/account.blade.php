@@ -52,9 +52,9 @@
             <div id="team" class="content-section hidden">
                 <h1 class="text-2xl font-bold mb-5">Team</h1>
                 <div class="space-y-4 bg-white p-5 rounded-lg shadow-md text-start">
-                    @if ($team)
-                        <p><strong>Team ID:</strong> {{ $team->id }}</p>
-                        <p><strong>Team Name:</strong> {{ $team->team_name }}</p>
+                    @if ($participant->team)
+                        <p><strong>Team ID:</strong> {{ $participant->team->id }}</p>
+                        <p><strong>Team Name:</strong> {{ $participant->team->team_name }}</p>
 
                         <h2 class="font-semibold mt-5">Participants:</h2>
                         @if ($participants->isEmpty())
