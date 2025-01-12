@@ -12,7 +12,9 @@ class Registration extends Model
     public $timestamps = false;
 
     protected $fillable  = [
-       'registration_date'
+       'registration_date',
+       'team_id',
+       'category_id',
     ];
 
     public function team()

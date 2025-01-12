@@ -3,9 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 
-class Leader extends Model
+class Leader extends Authenticatable
 {
     use HasFactory;
     public $timestamps = false;
@@ -19,6 +20,16 @@ class Leader extends Model
         'leader_password',
         'team_id'
     ];
+
+    protected $hidden = [
+        'leader_password',
+    ];
+
+
+    public function getAuthPassword()
+    {
+        return $this->leader_password;
+    }
 
     public function participants()
     {
