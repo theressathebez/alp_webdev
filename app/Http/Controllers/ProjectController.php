@@ -5,21 +5,25 @@ namespace App\Http\Controllers;
 use App\Models\Competition;
 use App\Models\Participant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
     
     public function indexCompetition()
     {
+
         $lastcompetition = Competition::latest()->first();
         $countdown = $lastcompetition->countdown();
+        $leaderEmail = Auth::guard('leader')->check() ? Auth::guard('leader')->user()->team_id : null;
 
         return view('home', [
             'title' => 'Project',
             'competition' => $lastcompetition,
             'countdown_days' => $countdown['days'],
             'countdown_hours' => $countdown['hours'],
-            'countdown_minutes' => $countdown['minutes']
+            'countdown_minutes' => $countdown['minutes'],
+            'leader_email' => $leaderEmail
         ]);
     }
 
