@@ -57,25 +57,26 @@ class LeaderController extends Controller
 
     function edit(Leader $leader)
     {
-        return view('participant.edit', [
+        return view('leader.edit', [
             "title" => "Edit Client",
-            "participant" => $leader
+            "leader" => $leader
         ]);
     }
 
-    // function update(Participant $participant, Request $request){
-    //     $validated = $request->validate([
-    //         'participant_name' => 'required|string|max:255',
-    //         'participant_dob' => 'required|date',
-    //         'participant_location' => 'required|string|max:255',
-    //         'participant_email' => 'required|email|max:255|unique:participants,participant_email',
-    //         'participant_phone' => 'required|string|max:20',
-    //         'participant_password' => 'required|string|min:8' 
-    //     ]);
+    function update(Leader $leader, Request $request)
+    {
+        $validated = $request->validate([
+            'leader_name' => 'nullable|string|max:255',
+            'leader_dob' => 'nullable|date',
+            'leader_location' => 'nullable|string|max:255',
+            'leader_email' => 'nullable|email|max:255|unique:participants,participant_email' . $leader->id,
+            'leader_phone' => 'nullable|string|max:20',
+            'leader_password' => 'nullable|string|min:8'
+        ]);
 
-    //     $participant->update($validated);
-    //     return redirect()->route('participant.index')->with('success', 'Client updated successfully.');
-    // }
+        $leader->update($validated);
+        return redirect()->route('leader.index', ['team_id' => $leader->team_id])->with('success', 'Participant added successfully.');
+    }
 
     // function destroy(Participant $participant){
     //     // delete all related projects

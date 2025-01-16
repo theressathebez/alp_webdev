@@ -60,6 +60,7 @@
                                 <th class="px-4 py-2 border">Date of Birth</th>
                                 <th class="px-4 py-2 border">Email</th>
                                 <th class="px-4 py-2 border">Phone</th>
+                                <th class="px-4 py-2 border">Activity</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -69,6 +70,12 @@
                                 <td class="px-4 py-2 border">{{ $leader->leader_dob }}</td>
                                 <td class="px-4 py-2 border">{{ $leader->leader_email }}</td>
                                 <td class="px-4 py-2 border">{{ $leader->leader_phone }}</td>
+                                <td class="px-4 py-2 border">
+                                    <a href="{{ route('leader.edit', ['leader' => $leader->id]) }}"
+                                        class="text-blue-500 hover:text-blue-700">
+                                        Edit
+                                    </a>
+                                </td>
                             </tr>
                             @if ($participants->isEmpty())
                                 <p>No participants found for this team.</p>
@@ -79,6 +86,12 @@
                                         <td class="px-4 py-2 border">{{ $participants->participant_dob }}</td>
                                         <td class="px-4 py-2 border">{{ $participants->participant_email }}</td>
                                         <td class="px-4 py-2 border">{{ $participants->participant_phone }}</td>
+                                        {{-- <td class="px-4 py-2 border">
+                                            <a href="{{ route('participant.edit', ['participant' => $participant->id]) }}"
+                                                class="text-blue-500 hover:text-blue-700">
+                                                Edit
+                                            </a>
+                                        </td> --}}
                                     </tr>
                                 @endforeach
                             @endif
@@ -98,7 +111,7 @@
                 <div class="bg-white p-5 rounded-lg shadow-md text-start">
                     @if ($registrations->isEmpty())
                         <h2 class="font-semibold mb-5">Do the registration in here!!!</h2>
-                        <a href="{{ route('registration.create',  ['leader_id' => $leader->id, 'team_id' => $leader->team_id]) }}"
+                        <a href="{{ route('registration.create', ['leader_id' => $leader->id, 'team_id' => $leader->team_id]) }}"
                             class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
                             Registration here
                         </a>
@@ -106,7 +119,8 @@
                         @foreach ($registrations as $registration)
                             <p><strong>Registration Date:</strong> {{ $registration->registration_date }}</p>
                             <p><strong>Category Name:</strong> {{ $registration->category->category_name }}</p>
-                            <p><strong>Competition Name:</strong> {{ $registration->category->competition->competition_name }}
+                            <p><strong>Competition Name:</strong>
+                                {{ $registration->category->competition->competition_name }}
                             </p>
                         @endforeach
                     @endif

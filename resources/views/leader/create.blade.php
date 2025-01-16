@@ -10,7 +10,7 @@
         <div class="mb-4">
             <label for="leader_name" class="block text-gray-700 text-sm font-bold mb-2">Leader Name</label>
             <input type="text" name="leader_name" id="leader_name" value="{{ old('leader_name') }}"
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('leader_name') border-red-500 @enderror">
+                class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('leader_name') border-red-500 @enderror">
             @error('leader_name')
                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
             @enderror
@@ -20,7 +20,7 @@
         <div class="mb-4">
             <label for="leader_dob" class="block text-gray-700 text-sm font-bold mb-2">Leader Date of Birth</label>
             <input type="date" name="leader_dob" id="leader_dob" value="{{ old('leader_dob') }}"
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('leader_dob') border-red-500 @enderror">
+                class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('leader_dob') border-red-500 @enderror">
             @error('leader_dob')
                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
             @enderror
@@ -30,7 +30,7 @@
         <div class="mb-4">
             <label for="leader_location" class="block text-gray-700 text-sm font-bold mb-2">Leader Location</label>
             <input type="text" name="leader_location" id="leader_location" value="{{ old('leader_location') }}"
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('leader_location') border-red-500 @enderror">
+                class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('leader_location') border-red-500 @enderror">
             @error('leader_location')
                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
             @enderror
@@ -40,7 +40,7 @@
         <div class="mb-4">
             <label for="leader_email" class="block text-gray-700 text-sm font-bold mb-2">Leader Email</label>
             <input type="email" name="leader_email" id="leader_email" value="{{ old('leader_email') }}"
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('leader_email') border-red-500 @enderror">
+                class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('leader_email') border-red-500 @enderror">
             @error('leader_email')
                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
             @enderror
@@ -50,7 +50,7 @@
         <div class="mb-4">
             <label for="leader_phone" class="block text-gray-700 text-sm font-bold mb-2">Leader Phone</label>
             <input type="text" name="leader_phone" id="leader_phone" value="{{ old('leader_phone') }}"
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('leader_phone') border-red-500 @enderror">
+                class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('leader_phone') border-red-500 @enderror">
             @error('leader_phone')
                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
             @enderror
@@ -60,7 +60,7 @@
         <div class="mb-4">
             <label for="leader_password" class="block text-gray-700 text-sm font-bold mb-2">Leader Password</label>
             <input type="password" name="leader_password" id="leader_password" value="{{ old('leader_password') }}"
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('leader_password') border-red-500 @enderror">
+                class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('leader_password') border-red-500 @enderror">
             @error('leader_password')
                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
             @enderror

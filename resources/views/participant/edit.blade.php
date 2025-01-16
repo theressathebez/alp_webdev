@@ -1,8 +1,8 @@
 <x-layout>
     <x-slot:layoutTitle>{{ $title }}</x-slot:layoutTitle>
-    <form action="{{ route('participant.update', $participant) }}" method="POST">
-        @method('PUT')
+    <form action="{{ route('participant.update', ['participant' => $participant->id]) }}" method="POST">
         @csrf
+        @method('PUT')
         
         {{-- Name --}}
         <div class="mb-4">

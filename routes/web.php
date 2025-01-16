@@ -37,6 +37,9 @@ Route::middleware(LeaderAuth::class)->group(function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/participant/create', [ParticipantController::class, 'create'])->name('participant.create');
+    Route::put('leader/{leader}/edit', [LeaderController::class, 'update'])->name('leader.update');
+    Route::put('participant/{participant}/edit', [ParticipantController::class, 'update'])->name('participant.update');
+
     // Route::get('/participant/{participant}', [ParticipantController::class, 'show'])->name('participant.show');
 });
 
