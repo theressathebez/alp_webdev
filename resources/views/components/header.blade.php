@@ -33,8 +33,13 @@
                         class="{{ request()->is('result') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 border-b-2 border-transparent hover:border-blue-500">Results</a>
                 </li>
                 <li>
-                    <a href="/participant"
-                        class="{{ request()->is('account') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 border-b-2 border-transparent hover:border-blue-500">Account</a>
+                    @auth
+                        <a href="/leader"
+                            class="{{ request()->is('account') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 border-b-2 border-transparent hover:border-blue-500">Account</a>
+                    @else
+                        <a href="{{ route('leader.login.get') }}"
+                            class="{{ request()->is('account') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 border-b-2 border-transparent hover:border-blue-500">Account</a>
+                    @endauth
                 </li>
             </ul>
         </nav>
@@ -76,12 +81,15 @@
                     class="{{ request()->is('result') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 block py-2">Results</a>
             </li>
 
-            @auth
-                <li>
-                    <a href="/participant"
-                        class="{{ request()->is('account') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 block py-2">Account</a>
-                </li>
-            @endauth
+            <li>
+                @auth
+                    <a href="/leader"
+                        class="{{ request()->is('account') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 border-b-2 border-transparent hover:border-blue-500">Account</a>
+                @else
+                    <a href="{{ route('leader.login.get') }}"
+                        class="{{ request()->is('account') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 border-b-2 border-transparent hover:border-blue-500">Account</a>
+                @endauth
+            </li>
 
         </ul>
     </nav>

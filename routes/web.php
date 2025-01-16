@@ -18,9 +18,11 @@ Route::get('/competition', [ProjectController::class, 'showCategory'])->name('co
 Route::get('/result', [ProjectController::class, 'showResult'])->name('Result');
 
 //routes untuk login leader
-Route::get('login', [LeaderAuthController::class, 'showLoginForm'])->name('leader.login');
-Route::post('login', [LeaderAuthController::class, 'login'])->name('leader.login'); 
+Route::get('login', [LeaderAuthController::class, 'showLoginForm'])->name('leader.login.get');
+Route::post('login', [LeaderAuthController::class, 'login'])->name('leader.login.post'); 
 Route::post('logout', [LeaderAuthController::class, 'logout'])->name('leader.logout');
+
+
 
 //routes bawaan Breeze
 // Route::get('/dashboard', function () {
@@ -31,14 +33,13 @@ Route::middleware(LeaderAuth::class)->group(function () {
     // Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     // Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    
-    Route::get('/participant/{participant}', [ParticipantController::class, 'show'])->name('participant.show');
+    Route::get('/participant/create', [ParticipantController::class, 'create'])->name('participant.create');
+    // Route::get('/participant/{participant}', [ParticipantController::class, 'show'])->name('participant.show');
 });
+
 
 //Routes untuk HTTP Request kalo VP
 Route::resource("/participant", ParticipantController::class);

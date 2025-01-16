@@ -38,6 +38,6 @@ class Leader extends Authenticatable
 
     public function team()
     {
-        return $this->belongsTo(Team::class);
+        return $this->belongsTo(Team::class, 'team_id');
     }
 }

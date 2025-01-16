@@ -7,54 +7,61 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 
-class ParticipantController extends Controller
+class  ParticipantController extends Controller
 {
    // get indexes 
-   public function index()
-    {
-        $lastParticipant = Participant::latest()->first();
+//    public function index()
+//     {
+//         $lastParticipant = Participant::latest()->first();
 
-        if (!$lastParticipant) {
-            return view('account', [
-                'title' => 'Project',
-                'participant' => null,
-                'team' => null,
-                'registration' => null,
-                'category' => null,
-                'leader' => null,
-                'institution' => null,
-                'participants' => null,
-            ]);
-        }
+//         if (!$lastParticipant) {
+//             return view('account', [
+//                 'title' => 'Project',
+//                 'participant' => null,
+//                 'team' => null,
+//                 'registration' => null,
+//                 'category' => null,
+//                 'leader' => null,
+//                 'institution' => null,
+//                 'participants' => null,
+//             ]);
+//         }
 
-        // Use map and flatMap for related data
-        $team = optional($lastParticipant->team);
-        $leader = optional($team->leader);
-        $registration = optional($team->registration);
-        $category = optional($registration->category);
-        $institution = optional($team->institution);
+//         // Use map and flatMap for related data
+//         $team = optional($lastParticipant->team);
+//         $leader = optional($team->leader);
+//         $registration = optional($team->registration);
+//         $category = optional($registration->category);
+//         $institution = optional($team->institution);
 
-        $participants = $team ? $team->participants : [];
+//         $participants = $team ? $team->participants : [];
 
-        return view('account', [
-            'title' => 'Project',
-            'participant' => $lastParticipant,
-            'team' => $team,
-            'registration' => $registration,
-            'category' => $category,
-            'leader' => $leader,
-            'institution' => $institution,
-            'participants' => $participants,
-        ]);
+//         return view('account', [
+//             'title' => 'Project',
+//             'participant' => $lastParticipant,
+//             'team' => $team,
+//             'registration' => $registration,
+//             'czategory' => $category,
+//             'leader' => $leader,
+//             'institution' => $institution,
+//             'participants' => $participants,
+//         ]);
+//     }
+
+//show detail of client
+public function show($id)
+{
+    $participant = Participant::find($id);
+
+    if (!$participant) {
+        return redirect()->route('participant.index')->with('error', 'Participant not found.');
     }
 
-// show detail of client
-// function show($id) {
-//     return view('clientdetail', [
-//         "pagetitle" => "Client Detail",
-//         "client" => Client::find($id)  
-//     ]);
-// }
+    return view('participant.show', [
+        "title" => "Participant Detail",
+        "participant" => $participant,
+    ]);
+}
 
 function create(Request $request) {
     $leader_id = $request->query('leader_id');
@@ -85,7 +92,7 @@ function store(Request $request)
 
     // Proceed with storing data
     $participant = Participant::create($validated);    
-    return redirect()->route('registration.create' ,['team_id' => $participant-> team_id])->with('success', 'Participant added successfully.');
+    return redirect()->route('leader.index' ,['team_id' => $participant-> team_id])->with('success', 'Participant added successfully.');
 }
 
 function edit(Participant $participant) {
