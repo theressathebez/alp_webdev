@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Competition;
 use App\Models\Participant;
+use App\Models\Stage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
-    
+
     public function indexCompetition()
     {
         $lastcompetition = Competition::latest()->first();
@@ -103,6 +104,20 @@ class ProjectController extends Controller
             'stages' => $stages,
             'results' => $results,
             'teams' => $teams,
+        ]);
+    }
+
+    public function showCategoryInResult()
+    {
+        // Ambil semua stages beserta relasi category dan outputs
+        $stages = Stage::with(['category', 'outputs'])->get();
+
+        // Group stages by category_id
+        $groupedStages = $stages->groupBy('category_id');
+
+        return view('result', [
+            'title' => 'Stages by Category',
+            'groupedStages' => $groupedStages,
         ]);
     }
 

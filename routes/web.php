@@ -22,7 +22,7 @@ Route::get('login', [LeaderAuthController::class, 'showLoginForm'])->name('leade
 Route::post('login', [LeaderAuthController::class, 'login'])->name('leader.login.post'); 
 Route::post('logout', [LeaderAuthController::class, 'logout'])->name('leader.logout');
 
-
+Route::get('/result', [ProjectController::class, 'showCategoryInResult'])->name('result');
 
 //routes bawaan Breeze
 // Route::get('/dashboard', function () {

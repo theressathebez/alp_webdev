@@ -11,8 +11,7 @@
             </button>
             <!-- Logo -->
             <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-7 md:h-8">
-            <h1
-                class="text-base md:text-xl  font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-pink-500 to-orange-500">
+            <h1 class="text-base md:text-xl  font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-pink-500 to-orange-500">
                 Digital Creative
             </h1>
         </div>
@@ -46,10 +45,12 @@
 
         <!-- Sign Up Button -->
         <div class="ml-2">
-            <a href="{{ route('team.create') }}"
-                class="bg-blue-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg text-xs md:text-sm  font-semibold hover:bg-blue-600">
-                Sign Up Now
-            </a>
+            @guest
+                <a href="{{ route('team.create') }}"
+                    class="bg-blue-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg text-xs md:text-sm  font-semibold hover:bg-blue-600">
+                    Sign Up Now
+                </a>
+            @endguest
         </div>
 
     </div>
