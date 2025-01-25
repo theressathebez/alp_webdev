@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Participant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Validation\Rule;
 
 
 class  ParticipantController extends Controller
@@ -110,7 +111,13 @@ class  ParticipantController extends Controller
             'participant_name' => 'nullable|string|max:255',
             'participant_dob' => 'nullable|date',
             'participant_location' => 'nullable|string|max:255',
-            'participant_email' => 'nullable|email|max:255|unique:participants,participant_email',
+            'participant_email' => [
+                'nullable',
+                'email',
+                'max:255',
+                // Validasi unik hanya jika email diubah
+                Rule::unique('participants', 'participant_email')->ignore($participant->id),
+            ],
             'participant_phone' => 'nullable|string|max:20',
             'participant_password' => 'nullable|string|min:8'
         ]);

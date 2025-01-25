@@ -70,38 +70,46 @@
                                 <td class="px-4 py-2 border">{{ $leader->leader_dob }}</td>
                                 <td class="px-4 py-2 border">{{ $leader->leader_email }}</td>
                                 <td class="px-4 py-2 border">{{ $leader->leader_phone }}</td>
+
                                 <td class="px-4 py-2 border">
                                     <a href="{{ route('leader.edit', ['leader' => $leader->id]) }}"
                                         class="text-blue-500 hover:text-blue-700">
-                                        Edit
+                                        <img src="{{ asset('images/edit.png') }}" alt="Edit"
+                                            class="h-6 w-6 inline-block">
                                     </a>
                                 </td>
+
                             </tr>
                             @if ($participants->isEmpty())
                                 <p>No participants found for this team.</p>
                             @else
-                                @foreach ($participants as $participants)
+                                @foreach ($participants as $participant)
                                     <tr>
-                                        <td class="px-4 py-2 border">{{ $participants->participant_name }}</td>
-                                        <td class="px-4 py-2 border">{{ $participants->participant_dob }}</td>
-                                        <td class="px-4 py-2 border">{{ $participants->participant_email }}</td>
-                                        <td class="px-4 py-2 border">{{ $participants->participant_phone }}</td>
-                                        {{-- <td class="px-4 py-2 border">
+                                        <td class="px-4 py-2 border">{{ $participant->participant_name }}</td>
+                                        <td class="px-4 py-2 border">{{ $participant->participant_dob }}</td>
+                                        <td class="px-4 py-2 border">{{ $participant->participant_email }}</td>
+                                        <td class="px-4 py-2 border">{{ $participant->participant_phone }}</td>
+                                        <td class="px-4 py-2 border">
                                             <a href="{{ route('participant.edit', ['participant' => $participant->id]) }}"
                                                 class="text-blue-500 hover:text-blue-700">
-                                                Edit
+                                                <img src="{{ asset('images/edit.png') }}" alt="Edit"
+                                                    class="h-6 w-6 inline-block">
                                             </a>
-                                        </td> --}}
+                                        </td>
+
                                     </tr>
                                 @endforeach
                             @endif
                         </tbody>
                     </table>
 
-                    <a href="{{ route('participant.create', ['leader_id' => $leader->id, 'team_id' => $leader->team_id]) }}"
-                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-                        + Add Participant
-                    </a>
+                    <div class="mt-10">
+                        <a href="{{ route('participant.create', ['leader_id' => $leader->id, 'team_id' => $leader->team_id]) }}"
+                            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ">
+                            + Add Participant
+                        </a>
+                    </div>
+
 
                 </div>
             </div>
