@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot:layoutTitle>{{ $title }}</x-slot:layoutTitle>
-
+   
     <div class="">
         @if ($leader_email)
             <p>Logged in as: {{ $leader_email }}</p>
@@ -9,7 +9,7 @@
         @endif
 
         <div class="flex flex-row justify-center items-center gap-x-4 mt-20">
-            <img src="{{ asset('images/b2.png') }}" alt="blue wave" class="h-28 md:h-40 absolute top-10 left-1/2">
+            <img src="{{ asset('images/b2.png') }}" alt="blue wave" class="h-28 md:h-32 absolute top-16 left-1/2">
             <img src="{{ asset('images/y1.png') }}" alt="yellow plus" class="h-28 md:h-40 absolute top-20 left-0">
 
             <div class="text-right">

@@ -35,7 +35,7 @@ class RegistrationController extends Controller
         ]);
 
         // Proceed with storing data
-        Registration::create($validated);
-        return redirect()->route('home')->with('success', 'Participant added successfully.');
+        $registrations = Registration::create($validated);
+        return redirect()->route('leader.index',['team_id' => $registrations-> team_id])->with('success', 'Participant added successfully.');
     }
 }

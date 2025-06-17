@@ -28,7 +28,7 @@
                     <img src="{{ asset('images/wa.png') }}" alt="Logo wa" class="h-8">
                     <img src="{{ asset('images/yt.png') }}" alt="Logo yt" class="h-8">
                 </div>
-                <h2 class="text-sm font-semibold pt-4">©2024 Digital Creative Student Challenge</h2>
+                <h2 class="text-sm font-semibold pt-4">©2025 Digital Creative Student Challenge</h2>
             </div>
         </div>
     </div>

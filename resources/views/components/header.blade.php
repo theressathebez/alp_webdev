@@ -11,8 +11,7 @@
             </button>
             <!-- Logo -->
             <img src="{{ asset('images/logo.png') }}" alt="Logo" class="h-7 md:h-8">
-            <h1
-                class="text-base md:text-xl  font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-pink-500 to-orange-500">
+            <h1 class="text-base md:text-xl  font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 via-pink-500 to-orange-500">
                 Digital Creative
             </h1>
         </div>
@@ -33,18 +32,25 @@
                         class="{{ request()->is('result') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 border-b-2 border-transparent hover:border-blue-500">Results</a>
                 </li>
                 <li>
-                    <a href="/account"
-                        class="{{ request()->is('account') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 border-b-2 border-transparent hover:border-blue-500">Account</a>
+                    @auth
+                        <a href="/leader"
+                            class="{{ request()->is('account') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 border-b-2 border-transparent hover:border-blue-500">Account</a>
+                    @else
+                        <a href="{{ route('leader.login.get') }}"
+                            class="{{ request()->is('account') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 border-b-2 border-transparent hover:border-blue-500">Account</a>
+                    @endauth
                 </li>
             </ul>
         </nav>
 
         <!-- Sign Up Button -->
         <div class="ml-2">
-            <a href="/team/create"
-                class="bg-blue-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg text-xs md:text-sm  font-semibold hover:bg-blue-600">
-                Sign Up Now
-            </a>
+            @guest
+                <a href="{{ route('team.create') }}"
+                    class="bg-blue-500 text-white px-4 md:px-6 py-2 md:py-3 rounded-lg text-xs md:text-sm  font-semibold hover:bg-blue-600">
+                    Sign Up Now
+                </a>
+            @endguest
         </div>
 
     </div>
@@ -75,10 +81,17 @@
                 <a href="/result"
                     class="{{ request()->is('result') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 block py-2">Results</a>
             </li>
+
             <li>
-                <a href="/account"
-                    class="{{ request()->is('account') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 block py-2">Account</a>
+                @auth
+                    <a href="/leader"
+                        class="{{ request()->is('account') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 border-b-2 border-transparent hover:border-blue-500">Account</a>
+                @else
+                    <a href="{{ route('leader.login.get') }}"
+                        class="{{ request()->is('account') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 border-b-2 border-transparent hover:border-blue-500">Account</a>
+                @endauth
             </li>
+
         </ul>
     </nav>
 </div>

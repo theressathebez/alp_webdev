@@ -24,7 +24,7 @@ class LeaderAuthController extends Controller
             'leader_password' => 'required|string|min:8',
         ]);
 
-        $leader = \App\Models\Leader::where('leader_email', $credentials['leader_email'])->first();
+        $leader = Leader::where('leader_email', $credentials['leader_email'])->first();
 
         if ($leader && $credentials['leader_password'] === $leader->leader_password) {
             Auth::guard('leader')->login($leader);
@@ -39,6 +39,6 @@ class LeaderAuthController extends Controller
     public function logout()
     {
         Auth::guard('leader')->logout();
-        return redirect()->route('leader.login');
+        return redirect()->route('leader.login.get');
     }
 }

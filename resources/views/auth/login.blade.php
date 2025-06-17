@@ -5,7 +5,7 @@
         <p class="text-green-500">{{ session('success') }}</p>
     @endif
 
-    <form action="{{ route('leader.login') }}" method="POST">
+    <form action="{{ route('leader.login.post') }}" method="POST">
         @csrf
         <div class="mb-4">
             <label for="leader_email" class="block text-sm font-bold mb-2">Leader Email</label>

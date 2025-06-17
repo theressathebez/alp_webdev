@@ -7,7 +7,7 @@
         <div class="mb-4">
             <label for="team_name" class="block text-gray-700 text-sm font-bold mb-2">Team Name</label>
             <input type="text" name="team_name" id="team_name" value="{{ old('team_name') }}"
-                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('team_name') border-red-500 @enderror">
+                class="shadow appearance-none border rounded w-1/2 py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline @error('team_name') border-red-500 @enderror">
             @error('team_name')
                 <p class="text-red-500 text-xs italic">{{ $message }}</p>
             @enderror

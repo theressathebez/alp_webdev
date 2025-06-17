@@ -34,5 +34,3 @@ return [
     // Password Timeout for Confirming Passwords
     'password_timeout' => 10800,  // 3 hours timeout
 ];
-
-

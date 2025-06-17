@@ -12,7 +12,7 @@ class LeaderAuth
     public function handle($request, Closure $next)
     {
         if (!Auth::guard('leader')->check()) {
-            return redirect()->route('leader.login');
+            return redirect()->route('leader.login.get');
         }
 
         return $next($request);
