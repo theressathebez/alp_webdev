@@ -20,17 +20,14 @@
         <nav class=" items-center justify-center flex-1 hidden md:flex">
             <ul class="flex gap-6 list-none text-sm">
                 <li>
-                    <a href="/home"
+                    <a href="/"
                         class="{{ request()->is('home') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 border-b-2 border-transparent hover:border-blue-500">Home</a>
                 </li>
                 <li>
                     <a href="/competition"
                         class="{{ request()->is('competition') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 border-b-2 border-transparent hover:border-blue-500">Competitions</a>
                 </li>
-                <li>
-                    <a href="/result"
-                        class="{{ request()->is('result') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 border-b-2 border-transparent hover:border-blue-500">Results</a>
-                </li>
+                
                 <li>
                     @auth
                         <a href="/leader"
@@ -70,7 +67,7 @@
     <nav class="flex flex-col items-center mt-4 space-y-6">
         <ul class="list-none text-center w-full">
             <li>
-                <a href="/home"
+                <a href="/"
                     class="{{ request()->is('home') ? 'font-bold text-black' : 'font-normal text-gray-500' }} hover:text-gray-700 block py-2">Home</a>
             </li>
             <li>

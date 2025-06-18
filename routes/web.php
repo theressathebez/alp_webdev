@@ -13,7 +13,7 @@ use App\Models\Participant;
 use Illuminate\Support\Facades\Route;
 
 //routes normal 
-Route::get('/home', [ProjectController::class, 'indexCompetition'])->name('home');
+Route::get('/', [ProjectController::class, 'indexCompetition'])->name('home');
 Route::get('/competition', [ProjectController::class, 'showCategory'])->name('competition');
 Route::get('/result', [ProjectController::class, 'showResult'])->name('Result');
 
