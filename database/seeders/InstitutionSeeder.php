@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Institution;
 
 class InstitutionSeeder extends Seeder
 {
@@ -12,6 +13,6 @@ class InstitutionSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+          Institution::factory()->count(10)->create();
     }
 }

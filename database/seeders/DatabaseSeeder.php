@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Institution;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
          $this->call([
         CompetitionSeeder::class,
         CategorySeeder::class,
+        InstitutionSeeder::class,
     ]);
 
         User::factory()->create([
